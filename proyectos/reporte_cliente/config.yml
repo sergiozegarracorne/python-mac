@@ -1,0 +1,27 @@
+recipe: default.v1
+assistant_id: cliente_nlu_bot
+language: es
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    entity_recognition: true
+    constrain_similarities: true
+  - name: RegexEntityExtractor
+    case_sensitive: false
+    use_lookup_tables: true
+    use_regexes: true
+    use_word_boundaries: true
+  - name: EntitySynonymMapper
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy

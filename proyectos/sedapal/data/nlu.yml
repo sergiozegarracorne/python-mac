@@ -1,0 +1,203 @@
+version: "3.1"
+
+nlu:
+# ---------------------------------------------------------------------------
+# 1) Consulta de estado/saldo de un NIS (suministro) -> dispara CONSULTA_ESTADO_NIS
+# ---------------------------------------------------------------------------
+- intent: consulta_estado_nis
+  examples: |
+    - cual es el saldo del nis [1234567](nis)
+    - quiero saber el estado de cuenta del nis [2345678](nis)
+    - el nis [3456789](nis) esta al dia?
+    - dime la situacion del nis [4567890](nis)
+    - cual es la deuda del nis [5678901](nis)
+    - estado actual del nis [6789012](nis)
+    - el suministro [7890123](nis) tiene deuda?
+    - quiero consultar el saldo del suministro [1112223](nis)
+    - revisame la situacion del nis [2223334](nis)
+    - el nis [3334445](nis) esta al dia con sus pagos?
+    - cuanto debe el nis [4445556](nis)
+    - dame el estado del suministro [5556667](nis)
+    - quisiera saber si el nis [6667778](nis) esta al dia
+    - consulta rapida del nis [7778889](nis) porfa
+    - podria revisar el estado de cuenta del suministro [8889990](nis)
+    - el nis [9990001](nis), como esta su situacion?
+    - buenas, necesito el saldo del nis [1231231](nis)
+    - informacion del estado del nis [2342342](nis)
+    - el suministro [3453453](nis) cuanto debe
+    - quiero el estado actual del nis [4564564](nis)
+    - me ayuda con el saldo del nis [5675675](nis)
+    - cual es la situacion actual del suministro [6786786](nis)
+    - deseo saber el estado del nis [7897897](nis)
+    - el nis [8908908](nis) tiene alguna deuda pendiente?
+    - quisiera el estado de cuenta del suministro [9019019](nis)
+    - buenas tardes, el nis [1029384](nis) esta al dia?
+    - por favor indiqueme la deuda del nis [2039485](nis)
+    - necesito saber si esta al dia el nis [3049586](nis)
+    - cual es el saldo pendiente del suministro [4059687](nis)
+    - el cliente pregunta por el saldo del nis [5069788](nis)
+    - consulteme la situacion del nis [6079889](nis) porfavor
+    - quiero verificar el estado de cuenta nis [7089990](nis)
+    - el nis [8090101](nis), cuanto es lo que debe?
+    - deme el estado actual del nis [9010203](nis)
+    - el suministro [1020304](nis) esta al dia o tiene deuda?
+    - nis [1234598](nis)
+    - nis [2345689](nis)
+    - consulta este nis [3456790](nis)
+    - revisa el nis [4567801](nis)
+    - chequea este nis [5678912](nis) porfa
+    - averigua el nis [6789023](nis)
+    - consultame este nis [7890134](nis)
+    - revisame el nis [8901245](nis)
+    - oe revisa el nis [9012356](nis)
+    - ya pe revisa el [1023467](nis)
+    - mano consulta este nis [2034578](nis)
+    - causa chequea este nis [3045689](nis) porfa
+
+# ---------------------------------------------------------------------------
+# 2) Consulta de NIS a partir del numero de MEDIDOR -> CONSULTA_NIS_X_MEDIDOR
+# ---------------------------------------------------------------------------
+- intent: consulta_nis_por_medidor
+  examples: |
+    - tengo este medidor [AA123456789](medidor) dame el nis
+    - medidor [EA123456789](medidor)
+    - pasa el suministro de este medidor [A1234567890](medidor)
+    - cual es el nis del medidor [AB123456789](medidor)
+    - necesito el nis que corresponde al medidor [BC123456789](medidor)
+    - el medidor es [CD123456789](medidor), cual es su nis
+    - busca el suministro con el medidor [DE123456789](medidor)
+    - quiero saber el nis del medidor numero [EF123456789](medidor)
+    - tengo el medidor [FG123456789](medidor), me das el nis
+    - el numero de medidor [GH123456789](medidor), cual es su suministro
+    - consulta el nis a partir del medidor [HI123456789](medidor)
+    - dame el suministro asociado al medidor [IJ123456789](medidor)
+    - el cliente tiene el medidor [JK123456789](medidor), necesito el nis
+    - podrias buscar el nis con el medidor [KL123456789](medidor)
+    - tengo anotado el medidor [LM123456789](medidor), cual es el suministro
+    - el medidor que tengo es [MN123456789](medidor), dame el nis correspondiente
+    - buscame el suministro del medidor [NO123456789](medidor)
+    - identifica el nis del medidor [B1234567890](medidor)
+    - el numero de serie del medidor es [OP123456789](medidor), cual es el nis
+    - con el medidor [PQ123456789](medidor) me puede dar el suministro?
+    - solo tengo el medidor [QR123456789](medidor), necesito el nis del cliente
+    - revisa el medidor [RS123456789](medidor) y dame el nis
+    - el medidor instalado es [C1234567890](medidor), cual es su nis
+    - segun el medidor [ST123456789](medidor) cual es el suministro
+    - tengo registrado el medidor [TU123456789](medidor), busco el nis
+
+# ---------------------------------------------------------------------------
+# 3) Mensajes informativos sobre un NIS (NO son consultas) -> futura NIS_ALERTA
+# ---------------------------------------------------------------------------
+- intent: informe_nis
+  examples: |
+    - este nis [1234567](nis) ya tiene orden
+    - se genero ot para el nis [2345678](nis)
+    - reitera a la contratista [3456789](nis)
+    - ya lo estan atendiendo [4567890](nis)
+    - nis [5678901](nis) esta de baja
+    - anula la ot del nis [6789012](nis)
+    - el nis [7890123](nis) ya fue atendido
+    - se cerro la ot del nis [8901234](nis)
+    - el nis [9012345](nis) esta pendiente de atencion
+    - confirmo que el nis [1112223](nis) fue reparado
+    - la contratista ya reviso el nis [2223334](nis)
+    - el nis [3334445](nis) sigue en proceso
+    - se anulo la orden del nis [4445556](nis)
+    - informo que el nis [5556667](nis) fue derivado a la contratista
+    - el nis [6667778](nis) ya cuenta con visita programada
+    - se registro la atencion del nis [7778889](nis)
+    - el nis [8889990](nis) fue reasignado a otra contratista
+    - ya se envio cuadrilla al nis [9990001](nis)
+    - el nis [1231231](nis) quedo resuelto
+    - la ot del nis [2342342](nis) fue anulada por el supervisor
+    - se coordino visita para el nis [3453453](nis)
+    - el nis [4564564](nis) ya tiene tecnico asignado
+    - reitero el caso del nis [5675675](nis) a la contratista
+    - nis [6786786](nis) fue dado de baja del sistema
+    - la contratista confirmo la atencion del nis [7897897](nis)
+    - el personal estuvo en el nis [1029384](nis)
+    - se realizo inspeccion del nis [2039485](nis)
+    - todavia nada con el nis [3049586](nis)
+    - aun no atienden el nis [4059687](nis)
+    - ya lo arreglaron el nis [5069788](nis)
+    - ya fueron al nis [6079889](nis)
+    - la cuadrilla ira al nis [7089990](nis)
+    - trabajo terminado en el nis [8090101](nis)
+    - el problema del nis [9010203](nis) fue solucionado
+    - ya solucionaron el nis [1020304](nis)
+    - el nis [1234598](nis) quedo operativo
+    - se creo una ot para el nis [2345689](nis)
+    - la ot del nis [3456790](nis) fue anulada
+    - el caso [4567801](nis) paso a otra cuadrilla
+    - visita coordinada para el nis [5678912](nis)
+    - se programo visita al nis [6789023](nis)
+    - todavia esta pendiente el nis [7890134](nis)
+    - falta atender el nis [8901245](nis)
+
+- intent: saludo
+  examples: |
+    - hola
+    - holaa
+    - ola
+    - ola buenas
+    - buenas
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - que tal
+    - hola, buen dia
+    - aló, buenas
+    - alo
+    - aló
+    - oe
+    - oe buenas
+    - habla
+    - habla causa
+    - habla mano
+    - que fue
+    - que tal causa
+    - como estan
+    - buenas broder
+    - hola amigo
+    - hola porfa una consulta
+    - buenas tengo una consulta
+
+- intent: despedida
+  examples: |
+    - chau
+    - chao
+    - adios
+    - hasta luego
+    - nos vemos
+    - gracias, eso es todo
+    - muchas gracias
+    - listo, gracias por la ayuda
+    - ya quedo
+    - perfecto
+    - listo nada mas
+    - ok chau
+    - gracias causa
+    - gracias mano
+    - gracias broder
+    - todo bien gracias
+    - bacan gracias
+    - chevere gracias
+
+- regex: nis
+  examples: |
+    - \b[0-9]{7}\b
+
+- regex: medidor
+  examples: |
+    - \b[A-Za-z]{2}[0-9]{9}\b
+    - \b[A-Za-z][0-9]{10}\b
+
+- synonym: nis
+  examples: |
+    - suministro
+    - numero de suministro
+
+- synonym: medidor
+  examples: |
+    - numero de medidor
+    - numero de serie del medidor

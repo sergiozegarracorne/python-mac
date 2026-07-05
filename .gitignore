@@ -1,0 +1,21 @@
+# Entorno virtual (se recrea con: python3.9 -m venv .venv && pip install rasa customtkinter)
+.venv/
+
+# Cache de Python
+__pycache__/
+*.pyc
+
+# Cache/telemetria de Rasa
+.rasa/
+
+# Modelos entrenados (binarios regenerables con el boton "Entrenar modelo")
+proyectos/*/models/*.tar.gz
+
+# Base de datos de casos pendientes de revision (estado local, no codigo)
+proyectos/*/pendientes.db
+
+# macOS
+.DS_Store
+
+# Estado interno de Claude Code
+.claude/

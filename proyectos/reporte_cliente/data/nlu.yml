@@ -1,0 +1,88 @@
+version: "3.1"
+
+nlu:
+- intent: consultar_reporte_cliente
+  examples: |
+    - dame el reporte del cliente [42451020](dni)
+    - dame el reporte del cliente [10203040](dni)
+    - quiero el reporte del cliente con dni [55667788](dni)
+    - necesito el reporte del cliente [99887766](dni)
+    - mostrame el reporte del cliente [12345678](dni)
+    - reporte del cliente [11223344](dni) por favor
+    - pasame el reporte del cliente numero [22334455](dni)
+    - reporte de cliente [33445566](dni)
+    - el cliente [44556677](dni) solicita su reporte
+    - solicito el reporte del cliente dni [66778899](dni)
+    - genera el reporte del cliente [77889900](dni)
+    - quiero ver el reporte de cliente con documento [88990011](dni)
+    - traeme el reporte del cliente [90011223](dni)
+    - reporte completo del cliente [10111213](dni)
+    - dame el reporte cliente [14151617](dni)
+
+- intent: consultar_estado_cuenta
+  examples: |
+    - sacame el estado de cuenta del cliente:[11111111](dni)
+    - sacame el estado de cuenta del cliente [22222222](dni)
+    - dame el estado de cuenta del cliente [33333333](dni)
+    - quiero el estado de cuenta de dni [44444444](dni)
+    - necesito el estado de cuenta del cliente numero [55555555](dni)
+    - mostrame el estado de cuenta cliente:[66666666](dni)
+    - estado de cuenta del cliente [77777777](dni)
+    - consulta de estado de cuenta dni [88888888](dni)
+    - traeme el estado de cuenta del cliente con documento [99999999](dni)
+    - el cliente [10101010](dni) pide su estado de cuenta
+    - generame el estado de cuenta del cliente [20202020](dni)
+    - estado de cuenta cliente [30303030](dni) por favor
+    - quiero ver el estado de cuenta del dni [40404040](dni)
+    - saca el estado de cuenta del cliente [50505050](dni)
+
+- intent: consultar_reporte_deudas
+  examples: |
+    - el cliente solicita su reporte de deudas dni [12121212](dni)
+    - dame el reporte de deudas del cliente [13131313](dni)
+    - quiero el reporte de deudas dni [14141414](dni)
+    - necesito el reporte de deudas del cliente [15151515](dni)
+    - mostrame las deudas del cliente [16161616](dni)
+    - reporte de deudas cliente [17171717](dni)
+    - el cliente [18181818](dni) solicita reporte de deudas
+    - consulta de deudas dni [19191919](dni)
+    - traeme el reporte de deudas del cliente numero [21212121](dni)
+    - deudas pendientes del cliente [23232323](dni)
+    - reporte de morosidad del cliente [24242424](dni)
+    - quiero saber las deudas del cliente con documento [25252525](dni)
+    - generame el reporte de deudas dni [26262626](dni)
+    - cuanto debe el cliente [27272727](dni)
+    - cuanto debe el dni [28282828](dni)
+    - cuanto plata debe el cliente [29292929](dni)
+    - decime cuanto debe el cliente [31313131](dni)
+    - quiero saber cuanto debe el cliente [32323232](dni)
+    - cuanto adeuda el cliente [34343434](dni)
+    - cuanto es la deuda del cliente [35353535](dni)
+    - a cuanto asciende la deuda del cliente [36363636](dni)
+
+- intent: saludo
+  examples: |
+    - hola
+    - buenas
+    - buenos dias
+    - buenas tardes
+    - que tal
+    - hola, buen dia
+
+- intent: despedida
+  examples: |
+    - chau
+    - adios
+    - hasta luego
+    - nos vemos
+    - gracias, eso es todo
+
+- regex: dni
+  examples: |
+    - [0-9]{6,10}
+
+- synonym: dni
+  examples: |
+    - documento
+    - numero de documento
+    - nro de documento

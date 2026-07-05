@@ -1,0 +1,22 @@
+version: "3.1"
+
+intents:
+  - consulta_estado_nis
+  - consulta_nis_por_medidor
+  - informe_nis
+  - saludo
+  - despedida
+
+entities:
+  - nis
+  - medidor
+
+responses:
+  utter_saludo:
+    - text: "Hola, buenas. Decime el NIS o el numero de medidor y te ayudo."
+  utter_despedida:
+    - text: "Listo, cualquier consulta aca estamos."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

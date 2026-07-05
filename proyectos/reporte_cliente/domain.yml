@@ -1,0 +1,21 @@
+version: "3.1"
+
+intents:
+  - consultar_reporte_cliente
+  - consultar_estado_cuenta
+  - consultar_reporte_deudas
+  - saludo
+  - despedida
+
+entities:
+  - dni
+
+responses:
+  utter_saludo:
+    - text: "Hola, decime que necesitas del cliente."
+  utter_despedida:
+    - text: "Listo, cualquier cosa avisame."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
